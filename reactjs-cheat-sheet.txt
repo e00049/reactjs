@@ -7,3 +7,137 @@ sudo apt-get install -y nodejs
 sudo npx create-react-app ${HOME}/projects/empdetailsproject -y
 sudo npm start --prefix ${HOME}/projects/empdetailsproject
 
+-------------------------------------------------------------------
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import { useState } from 'react';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+reportWebVitals();
+
+----------------------App.js Default-------------------------------
+
+useEffect( function checkStatus () {
+
+fetch().then().then({
+console.log(data);
+
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
+}
+
+export default App;
+
+----------------------App.js Working 01-------------------------------
+
+import { useState } from 'react';
+
+function App() {
+  const [ display, setDisplay ] = useState(123456789)
+  return ( 
+  <> 
+   <h3> {display} </h3>
+  </> 
+  );
+}
+
+export default App;
+
+---------------------App.js Working 02--------------------------------
+
+import React from 'react';
+import { useState } from 'react';  // named exports
+
+function App() {
+  const [ display, setDisplay ] = useState(1)  // setter and getter methods
+
+  function increamentDisplay () {       // normal function    
+    setDisplay(display+1);
+  }
+  const decreamenttDisplay = () => {   // arrow function 
+    setDisplay(display-1);
+  }  
+
+  return ( // function always return single value
+  <>     
+    <h3> {display} </h3>  
+    <br/>
+    <button  onClick={increamentDisplay}> Increament </button>
+    <button  onClick={decreamenttDisplay}> Increament </button>    
+  </> 
+  );
+}
+
+export default App;
+
+---------------------App.js Working 03--------------------------------
+import React from 'react';
+import UseStateArray from './UseStateArray';
+
+function App() {
+
+  return ( // function always return single value
+  <>
+  <UseStateArray/>
+  </> 
+  );
+}
+
+export default App;
+
+
+import { useState } from 'react';  // named exports
+
+function UseStateArray() {
+  const [ data, setData ] = useState([])  // setter and getter methods
+  const sports = ['cricket', 'football', 'vollayball'];  
+  const addSports = () => {
+        setData(sports);
+  } 
+  const addNewOneSport = () => {
+      const addNewSport = ['baseball'];
+      setData([...data, addNewSport]);   // spread operator
+  }
+
+  return ( // function always return single value
+  <>     
+    UseStateArray
+    {data.length && data.map((sports) => { 
+      return <li> {sports} </li>; 
+      })}
+    <br/>
+    <button  onClick={addSports}> add Sports </button> <br/>
+    <button  onClick={addNewOneSport}> add one new Sport </button>    
+  </> 
+  );
+}
+
+export default UseStateArray;
+------------------------------------------------------------------------
