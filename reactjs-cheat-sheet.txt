@@ -1,0 +1,9 @@
+# Install reactjs 18.x in ubunut Machine
+
+sudo apt update && \
+sudo apt-get install build-essential -y && \
+curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash - && \
+sudo apt-get install -y nodejs
+sudo npx create-react-app ${HOME}/projects/empdetailsproject -y
+sudo npm start --prefix ${HOME}/projects/empdetailsproject
+
